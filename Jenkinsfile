@@ -7,9 +7,7 @@ pipeline {
   stages {
     stage('Checkout Source') {
       steps {
-        #git 'https://github.com/xadimousalih/jenkins-kubernetes-deployment.git'
-		git url: 'https://github.com/xadimousalih/jenkins-kubernetes-deployment.git', branch: 'main',
-                 credentialsId: 'GitHub_Credentials'
+		    git url: 'https://github.com/xadimousalih/jenkins-kubernetes-deployment.git', branch: 'main', credentialsId: 'GitHub_Credentials'
       }
     }
     stage('Build image') {
@@ -34,8 +32,7 @@ pipeline {
     stage('Deploying React.js container to Kubernetes') {
       steps {
         script {
-          kubernetesDeploy(configs: "deployment.yaml", 
-                                         "service.yaml")
+          kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
         }
       }
     }
