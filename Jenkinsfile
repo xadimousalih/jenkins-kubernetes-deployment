@@ -1,7 +1,7 @@
 pipeline {
   environment {
     dockerimagename = "xadimousalih/react-app"
-    dockerImage = ""
+    //dockerImage = ""
   }
   agent any
   stages {
