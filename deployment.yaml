@@ -22,3 +22,13 @@ spec:
         image: xadimousalih/react-app:latest 
         ports:
         - containerPort: 3000 #The port for the React.js application container
+      - name: kubectl
+        image: bitnami/kubectl:latest
+        command:
+          - "/bin/sh"
+          - "-c"
+          - "sleep 99d"
+        tty: true
+        securityContext:
+        runAsUser: 0
+      restartPolicy: Never
