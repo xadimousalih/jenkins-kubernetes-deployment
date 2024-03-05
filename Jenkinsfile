@@ -37,8 +37,8 @@ pipeline {
             //sh 'chmod u+x ./kubectl'
             sh "echo $KUBECONFIG > /.kube/config"
             //sh './kubectl get pods'
-            //sh 'minikube kubectl -- get pods'
-            sh 'kubectl get pods'
+            sh 'minikube kubectl -- get pods'
+            //sh 'kubectl get pods'
 
           //sh "kubectl apply -f deployment.yaml"
           //sh "kubectl apply -f service.yaml"
