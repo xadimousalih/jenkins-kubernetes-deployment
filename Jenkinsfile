@@ -31,10 +31,11 @@ pipeline {
     }
     stage('Deploying React.js container to Kubernetes') {
       steps {
-        //container(name: 'kubectl', shell: '/bin/sh') {
+        container(name: 'kubectl', shell: '/bin/sh') {
           withKubeConfig([credentialsId: 'kubernetes-config']) {
-            sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'
-            sh 'chmod u+x ./kubectl'
+            //sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'
+            //sh 'chmod u+x ./kubectl'
+            sh "echo $KUBECONFIG > /.kube/config"
             //sh './kubectl get pods'
             //sh 'minikube kubectl -- get pods'
             sh 'kubectl get pods'
